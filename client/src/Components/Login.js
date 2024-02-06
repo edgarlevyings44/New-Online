@@ -34,14 +34,7 @@ function Login({setCustomer}) {
                 window.alert('Response Error')
             }
         })
-        .then((data) => {
-            if (data){
-                setCustomer(data)
-                navigate('/')
-            } else{
-                window.alert("Wrong credential")
-            }
-        })
+    
         .then((data) => {
             if (data) {
                 // Save user details to local storage
