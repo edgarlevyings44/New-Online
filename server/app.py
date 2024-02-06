@@ -262,7 +262,7 @@ class OrderClass(Resource):
     
     @staticmethod
     def post():
-        user = session.get('user_id')
+        user = request.json['user_id']
         name = request.json['name']
         county = request.json['county']
         street = request.json['street']
