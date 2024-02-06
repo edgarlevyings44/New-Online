@@ -4,15 +4,30 @@ import "./MyOrders.css"
 function MyOrders() {
 
     const [record, setRecord] = useState([])
+    const user_id = sessionStorage.getItem('user_id');
 
     useEffect(() => {
-        fetch('/orders')
+      if (!user_id) {
+        console.log('User ID not found in the session.');
+        return;
+      }
+
+        fetch(`https://dedanite-online.onrender.com/${user_id}`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
         .then((response) => response.json())
         .then((data) => {
             setRecord(data)
             console.log(data)
         })
-    }, [])
+        .catch((error) => {
+          console.log('Error fetching orders:', error);
+        });
+    }, [user_id])
+
   return (
       <div className='history_container'>
         <h2>My Orders</h2>

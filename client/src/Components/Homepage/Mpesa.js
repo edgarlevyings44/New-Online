@@ -40,12 +40,15 @@ const Mpesa = ({ totalAmount }) => {
 
   const createOrder = (statusValue) => {
 
+    const user_id = sessionStorage.getItem('user_id');
+    console.log('User ID:', user_id);
+
     fetch('https://dedanite-online.onrender.com/orders', {
         method:'POST',
         headers:{
             'Content-Type':'application/json'
         },
-        body:JSON.stringify({name,amount, county, street, status:statusValue})
+        body:JSON.stringify({user_id, name,amount, county, street, status:statusValue})
     })
     .then((response) => response.json())
   }

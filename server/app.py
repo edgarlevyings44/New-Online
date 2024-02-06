@@ -234,7 +234,30 @@ class Product_By_Category(Resource):
 
 api.add_resource(Product_By_Category, '/category')
 
+class UserOrders(Resource):
+    @staticmethod
+    def get(user_id):
+        order_list = Order.query.filter_by(user_id=user_id).all()
 
+        all_orders = []
+
+        for item in order_list:
+            order_data = {
+                "id": item.id,
+                "name": item.name,
+                "county": item.county,
+                "street": item.street,
+                "total_amount": item.total_amount,
+                "order_date": item.order_date,
+                "status": item.status
+            }
+
+            all_orders.append(order_data)
+
+        response = make_response(jsonify(all_orders))
+        return response
+
+api.add_resource(UserOrders, '/user_orders/<int:user_id>')
 class OrderClass(Resource):
     
     @staticmethod
