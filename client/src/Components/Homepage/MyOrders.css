@@ -1,0 +1,17 @@
+.history_container{
+    background-color: #FCF6F5FF;
+    text-align: center;
+}
+
+.history_container h2{
+    color: chocolate;
+    font-size: 200%;
+}
+
+
+.table{
+    border: 1px solid black;
+    width: 90%;
+    margin: auto;
+    margin-bottom: 100px;
+}
