@@ -13,7 +13,7 @@ function SearchBar({ handleAddToCart, resetSearchKey }) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('/products')
+    fetch('https://dedanite-online.onrender.com/products')
       .then((response) => response.json())
       .then((data) => {
         setData(data);

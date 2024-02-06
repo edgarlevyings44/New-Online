@@ -55,7 +55,7 @@ function App() {
   }
 
   useEffect(() => {
-    fetch('/user')
+    fetch('https://dedanite-online.onrender.com/user')
     .then((response) => {
       if (response.ok){
         response.json()
