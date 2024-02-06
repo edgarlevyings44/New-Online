@@ -26,7 +26,7 @@ function Register() {
         event.preventDefault()
 
         if (formData.password == formData.confirmPassword){
-            fetch('/register',{
+            fetch('https://dedanite-online.onrender.com/register',{
                 method:'POST',
                 headers:{
                     'Content-Type':'application/json'
