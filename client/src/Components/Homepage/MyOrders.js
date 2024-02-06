@@ -6,7 +6,7 @@ function MyOrders() {
     const [record, setRecord] = useState([])
 
     useEffect(() => {
-        fetch('/orders')
+        fetch('https://dedanite-online.onrender.com/make_payment/orders')
         .then((response) => response.json())
         .then((data) => {
             setRecord(data)

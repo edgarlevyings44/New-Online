@@ -21,7 +21,7 @@ function ResetPassword() {
         event.preventDefault()
         
         if (formData.password == formData.confirmPassword){
-            fetch('/resetpassword', {
+            fetch('https://dedanite-online.onrender.com/resetpassword', {
                 method:'PUT',
                 headers:{
                     "Content-Type":"application/json"
