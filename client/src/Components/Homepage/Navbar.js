@@ -6,6 +6,7 @@ import SearchBar from "./Searchbar";
 import "./Navbar.css";
 import "./Input.css";
 import SearchResultPage from "./SearchResultPage";
+import exampleImage from '../Assets/Frame53.png'
 
 export const Navbar = ({cart, customer, setCustomer, handleAddToCart, resetSearchResults}) => {
 
@@ -36,7 +37,8 @@ export const Navbar = ({cart, customer, setCustomer, handleAddToCart, resetSearc
     <div className="navbar_navbar">
       <div className="navbar_logo">
         <Link to="/" onClick={() => setResetSearchKey((prevKey) => prevKey + 1)}>
-          <img src="https://i.im.ge/2024/01/29/bLwiCS.WhatsApp-Image-2024-01-29-at-14-40-27.jpg" alt="Denitelogo" />
+          {/* <img src="https://i.im.ge/2024/01/29/bLwiCS.WhatsApp-Image-2024-01-29-at-14-40-27.jpg" alt="Denitelogo" /> */}
+          <img src={exampleImage} alt="Dedanitelogo" />
         </Link>
       </div>
       <div className="navbar_links">
