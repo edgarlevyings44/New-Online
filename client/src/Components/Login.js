@@ -42,6 +42,18 @@ function Login({setCustomer}) {
                 window.alert("Wrong credential")
             }
         })
+        .then((data) => {
+            if (data) {
+                // Save user details to local storage
+                localStorage.setItem('user', JSON.stringify(data));
+                // Log user details to console
+                console.log('Logged in user:', data);
+                setCustomer(data);
+                navigate('/');
+            } else {
+                window.alert("Wrong credential");
+            }
+        });
     }
   return (
     <div className='login'>
