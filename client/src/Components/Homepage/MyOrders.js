@@ -6,7 +6,7 @@ function MyOrders() {
     const [record, setRecord] = useState([])
 
     useEffect(() => {
-        fetch('https://dedanite-online.onrender.com/orders')
+        fetch('/orders')
         .then((response) => response.json())
         .then((data) => {
             setRecord(data)
@@ -30,7 +30,7 @@ function MyOrders() {
                   <td>{order.id}</td>
                   <td>{order.total_amount.toFixed(2)}</td>
                   <td>{order.order_date}</td>
-                  <td>{order.status ===  0 ?('pending'):('paid')}</td>
+                  <td>{order.status ==  0 ?('pending'):('paid')}</td>
                 </tr>
               ))}
             </tbody>
