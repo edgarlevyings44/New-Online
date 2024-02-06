@@ -12,7 +12,7 @@ function MyOrders() {
         return;
       }
 
-        fetch(`https://online-store-eifb.onrender.com/user_orders/${user_id}`, {
+        fetch(`https://dedanite-online.onrender.com/user_orders/${user_id}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
