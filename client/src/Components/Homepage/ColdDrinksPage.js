@@ -7,7 +7,7 @@ const ColdDrinksPage = ({handleAddToCart}) => {
   const [selectedPriceRange, setSelectedPriceRange] = useState('All');
 
   useEffect(() => {
-    fetch('/products')
+    fetch('https://dedanite-online.onrender.com/products')
     .then((response) => response.json())
     .then((data) => {
       const products = data.filter((item) => item.category == 'Cold Drinks')

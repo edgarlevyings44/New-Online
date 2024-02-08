@@ -9,7 +9,7 @@ const AllCategoriesPage = ({handleAddToCart}) => {
  const [selectedPriceRange, setSelectedPriceRange] = useState('All');
 
  useEffect(() => {
-  fetch('/products')
+  fetch('https://dedanite-online.onrender.com/products')
   .then((response) => response.json())
   .then((data) => {
     setAllcategories(data)

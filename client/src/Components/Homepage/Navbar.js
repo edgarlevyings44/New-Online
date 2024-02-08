@@ -15,7 +15,7 @@ export const Navbar = ({cart, customer, setCustomer, handleAddToCart, resetSearc
   const location = useLocation();
 
   const handleLogout = () => {
-    fetch('/logout', {
+    fetch('https://dedanite-online.onrender.com/logout', {
       method:'DELETE'
     })
     .then((response) => response.json())
