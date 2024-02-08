@@ -3,6 +3,7 @@ from flask_migrate import Migrate
 from flask_cors import CORS
 from flask_restful import Api, Resource, reqparse
 import requests
+import re
 import datetime
 from flask_bcrypt import Bcrypt
 import base64
@@ -42,12 +43,12 @@ class Register(Resource):
                 "error":"User already exist"
             }
             response = make_response(
-                jsonify(message)
+                jsonify(message),401
             )
             return response
         else:
             hashed_password = bcrypt.generate_password_hash(password)
-
+            
             new_user = Customer(
                 firstname = firstname,
                 lastname = lastname,
