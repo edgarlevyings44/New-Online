@@ -52,9 +52,9 @@ search-input {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  min-height: 500px;
-  height: 500px;
-  min-width: 1830px;
+  min-height: 800px;
+  /* height: 500px; */
+  min-width: 2330px;
   margin: -105px;
   margin-left: -510px;
   margin-right: -155px;
