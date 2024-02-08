@@ -49,17 +49,16 @@ const ColdDrinksPage = ({handleAddToCart}) => {
 
         {/* Product Cards */}
         <div className="card-container">
-          {filteredProducts.map(product => (
-            <div key={product.id} className="card">
-              <img src={product.imageurl} alt={product.name} />
-              <label>{product.name}</label>
-              <div className="card-details">
-                <p>Category: {product.category}</p>
-                <p>Price: Kshs.{product.price}</p>
-                <button onClick={() => handleAddToCart(product)}>Add to Cart</button>
-              </div>
-            </div>
-          ))}
+        {filteredProducts.map((product) => (
+          <Details 
+            key={product.id}
+            id={product.id}
+            name={product.name}
+            price={product.price}
+            imageurl={product.imageurl}
+            handleAddToCart={handleAddToCart}
+          />
+         ))}
         </div>
       </div>
     </div>
