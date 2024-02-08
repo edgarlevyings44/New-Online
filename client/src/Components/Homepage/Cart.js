@@ -14,6 +14,9 @@ function Cart({customer, cart, setCart, removeFromCart, totalAmount}) {
   const handleCheckUser = () => {
     navigate('/login')
   }
+  const clearCart = () => {
+    setCart([]);
+  };
 
 
   return (
@@ -99,6 +102,9 @@ function Cart({customer, cart, setCart, removeFromCart, totalAmount}) {
       <div className='order-summary'>
         <button onClick={customer ? (handlePay) : (handleCheckUser)}>
           Check Out
+        </button>
+        <button className="clear-cart" onClick={clearCart}>
+          Clear Cart
         </button>
       </div>
     </div>

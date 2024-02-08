@@ -14,7 +14,7 @@ const ColdDrinksPage = ({handleAddToCart}) => {
       const products = data.filter((item) => item.category == 'Cold Drinks')
       setDrink(products)
     })
-  }, [])
+  }, [])l
 
   const filteredProducts = drinks
     .filter(product => selectedCategory === 'All' || product.category === selectedCategory)
