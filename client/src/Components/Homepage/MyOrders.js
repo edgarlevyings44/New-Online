@@ -4,34 +4,15 @@ import "./MyOrders.css"
 function MyOrders() {
 
     const [record, setRecord] = useState([])
-    const user_id = sessionStorage.getItem('user_id');
 
     useEffect(() => {
-<<<<<<< HEAD
         fetch('/orders')
-=======
-      if (!user_id) {
-        console.log('User ID not found in the session.');
-        return;
-      }
-
-        fetch(`https://dedanite-online.onrender.com/user_orders/${user_id}`, {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        })
->>>>>>> 75e419effb9d1663dde51689fbdb873e699d3f8d
         .then((response) => response.json())
         .then((data) => {
             setRecord(data)
-            console.log(data)
+            
         })
-        .catch((error) => {
-          console.log('Error fetching orders:', error);
-        });
-    }, [user_id])
-
+    }, [])
   return (
       <div className='history_container'>
         <h2>My Orders</h2>
@@ -49,7 +30,7 @@ function MyOrders() {
                   <td>{order.id}</td>
                   <td>{order.total_amount.toFixed(2)}</td>
                   <td>{order.order_date}</td>
-                  <td>{order.status ==  0 ?('pending'):('paid')}</td>
+                  <td>{order.status == 0 ?('pending'):('paid')}</td>
                 </tr>
               ))}
             </tbody>

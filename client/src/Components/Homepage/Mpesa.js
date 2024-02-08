@@ -45,7 +45,7 @@ const Mpesa = ({ totalAmount }) => {
         headers:{
             'Content-Type':'application/json'
         },
-        body:JSON.stringify({user_id, name,amount, county, street, status:statusValue})
+        body:JSON.stringify({name,amount, county, street, status:statusValue})
     })
     .then((response) => response.json())
   }
