@@ -7,6 +7,8 @@
     margin: 0;
     margin-top: 40px;
     margin-bottom: 20px;
+    margin-top: 20px;
+    margin-bottom: 10px;
     position: relative;
     font-size: 25px;
     line-height: 30px;
@@ -16,10 +18,10 @@
   
   .line-div {
     position: relative;
-    border-top: 3px solid rgba(42, 79, 151, 0.96);
+    border-top: 2px solid rgba(42, 79, 151, 0.96);
     box-sizing: border-box;
     width: 100%;
-    height: 3px;
+    height: 2px;
     margin-top: 0px;
   }
   
@@ -72,11 +74,11 @@
     align-items: center;
     justify-content: center;
     border: 1px solid #ccc;
-    padding: 20px;
-    margin-top: 70px;
-    margin: 5px;
-    width: 250px;
-    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+    /* margin: 5px; */
+    width: 100%;
+    
   }
   
   
@@ -94,10 +96,10 @@
   
   
   .cta {
-    width: 70.5px;
-    margin-right: 45px;
-    margin-bottom: -10px; /* Adjust bottom spacing as needed */
-    right: 20px; /* Adjust right spacing as needed */
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 10px; /* Adjust bottom spacing as needed */
+    right: 0; /* Adjust right spacing as needed */
     background-color: transparent;
     color: navy;
     border: 2px solid navy;
@@ -177,5 +179,17 @@
     padding: 10px;
     background-color: #4CAF50; 
     color: #fff;
+  }
+  .dropdown{
+    border: none;
+    background-color: #fff;
+  }
+
+  @media screen and (max-width: 600px){
+    .notification-center{
+      width: 90%;
+      left: 5%;
+      border-radius: 0;
+    }
   }
   

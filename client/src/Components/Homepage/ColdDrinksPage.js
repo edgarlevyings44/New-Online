@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import "./ColdDrinksPage.css"
+import Details from './Details';
 
 const ColdDrinksPage = ({handleAddToCart}) => {
   const [drinks, setDrink] = useState([])

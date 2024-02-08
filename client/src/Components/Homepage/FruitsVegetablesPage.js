@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import "./FruitsPageVegetables.css"
+import Details from './Details';
 
 
 const FruitsVegetablesPage = ({handleAddToCart}) => {

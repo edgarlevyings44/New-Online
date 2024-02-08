@@ -160,3 +160,12 @@
   width: 208px;
   height: 3px;
 }
+@media screen and (max-width: 600px){
+  .card{
+    width: 100%;
+  }
+  .cta{
+    width: 100%;
+    text-align: center;
+  }
+}
