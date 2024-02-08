@@ -26,7 +26,7 @@ function Register() {
         event.preventDefault()
 
         if (formData.password == formData.confirmPassword){
-            fetch('https://dedanite-online.onrender.com/register',{
+            fetch('/register',{
                 method:'POST',
                 headers:{
                     'Content-Type':'application/json'
@@ -36,15 +36,16 @@ function Register() {
             .then((response) => {
                 if (response.ok){
                     response.json()
+                    window.alert('Account created successfully')
+                    navigate('/login')
                 }else{
-                    window.alert('Network response was not ok')
+                    return response.json().then((errorData) => {
+                        window.alert(`Error: ${errorData.error}`)
+                    })
                 }
 
             })
-            .then((data) => {
-                window.alert('Account created successfully')
-                navigate('/login')
-            })
+
         } else{
             window.alert('password is not same')
         }

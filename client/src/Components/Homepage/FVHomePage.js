@@ -32,7 +32,7 @@ const FruitsVegPage = ({handleAddToCart}) => {
 
 
   useEffect(() => {
-    fetch('https://dedanite-online.onrender.com/products')
+    fetch('/products')
     .then((response) => response.json())
     .then((data) => {
       const filteredData = data.filter((item) => item.category == 'Fruits')

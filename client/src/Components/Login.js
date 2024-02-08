@@ -20,7 +20,7 @@ function Login({setCustomer}) {
     const handleLogin = (event) => {
         event.preventDefault()
 
-        fetch('https://dedanite-online.onrender.com/login', {
+        fetch('/login', {
             method:'POST',
             headers:{
                 'Content-Type':'application/json'

@@ -3,6 +3,7 @@ from flask_migrate import Migrate
 from flask_cors import CORS
 from flask_restful import Api, Resource, reqparse
 import requests
+import re
 import datetime
 from flask_bcrypt import Bcrypt
 import base64
@@ -12,7 +13,7 @@ from model import db, Customer, Product, Order, Payment, TopCategory, FeaturedBr
 
 app = Flask(__name__)
 api = Api(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://xpzqdfgs:IHMQ5kC5phJNpB7CueyxOPeBqa7qgRJ5@surus.db.elephantsql.com/xpzqdfgs'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = b'Y\xf1Xz\x00\xad|eQ\x80t \xca\x1a\x10K'
 app.json.compact = False
@@ -43,35 +44,63 @@ class Register(Resource):
                 "error":"User already exist"
             }
             response = make_response(
-                jsonify(message)
+                jsonify(message), 401
             )
             return response
         else:
-            hashed_password = bcrypt.generate_password_hash(password)
+            if not re.search(r'[A-Z]', password):
+                return make_response(
+                    jsonify({
+                        "error":"Password must have at least one uppercase letter"
+                    }), 401
+                )
+            if not re.search(r'[a-z]', password):
+                return make_response(
+                    jsonify({
+                        "error":"Password must have at least one lowercase letter"
+                    }), 401
+                )
+            if not re.search(r'\d', password):
+                return make_response(
+                    jsonify({
+                        "error":"Password must have at least one numeric digit"
+                    }), 401
+                )
+            if len(password) < 8:
+                return make_response(
+                    jsonify({
+                        "error":"Password length must be greater or equal to 8 characters"
+                    }),401
+                )
+            else:
+                hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
 
-            new_user = Customer(
-                firstname = firstname,
-                lastname = lastname,
-                phone = phone,
-                email = email,
-                password = hashed_password
-            )
+                new_user = Customer(
+                    firstname = firstname,
+                    lastname = lastname,
+                    phone = phone,
+                    email = email,
+                    password = hashed_password
+                )
 
-            db.session.add(new_user)
-            db.session.commit()
+                db.session.add(new_user)
+                db.session.commit()
 
-            response = {
-                "id":new_user.id,
-                "firstname":new_user.firstname,
-                "lastname":new_user.lastname,
-                "phone":new_user.phone,
-                "email":new_user.email,
-                "is_admin":new_user.is_admin
-            }
+                response = {
+                    "id":new_user.id,
+                    "firstname":new_user.firstname,
+                    "lastname":new_user.lastname,
+                    "phone":new_user.phone,
+                    "email":new_user.email,
+                    "is_admin":new_user.is_admin
+                }
 
-            return make_response(
-                jsonify(response)
-            )
+                return make_response(
+                    jsonify(response)
+                )
+
+
+            
 
 api.add_resource(Register, '/register')
 

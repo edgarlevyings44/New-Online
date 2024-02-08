@@ -40,7 +40,7 @@ const Mpesa = ({ totalAmount }) => {
 
   const createOrder = (statusValue) => {
 
-    fetch('https://dedanite-online.onrender.com/orders', {
+    fetch('/orders', {
         method:'POST',
         headers:{
             'Content-Type':'application/json'
@@ -54,7 +54,7 @@ const Mpesa = ({ totalAmount }) => {
     event.preventDefault();
     setLoading(true);
 
-    fetch('https://dedanite-online.onrender.com/make_payment', {
+    fetch('/make_payment', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
