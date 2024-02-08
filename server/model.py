@@ -2,6 +2,7 @@ from flask_sqlalchemy import SQLAlchemy
 import re
 from sqlalchemy.orm import validates
 from sqlalchemy_serializer import SerializerMixin
+from sqlalchemy import DECIMAL
 
 db = SQLAlchemy()
 
@@ -18,7 +19,7 @@ class Customer(db.Model, SerializerMixin):
     is_admin = db.Column(db.Boolean, default = False, nullable = False)
     created_at = db.Column(db.DateTime(), server_default = db.func.now())
 
-    order = db.relationship('Order', backref = 'customer_orders', lazy = True)
+    order = db.relationship('Order', back_populates = 'customer', lazy = True)
 
     def __repr__(self):
         return f"Name: {self.firstname} {self.lastname}"
@@ -43,7 +44,7 @@ class Product(db.Model, SerializerMixin):
     name = db.Column(db.String, nullable = False)
     category = db.Column(db.String, nullable = False)
     weight = db.Column(db.String, nullable = False)
-    price = db.Column(db.Integer, nullable = False)
+    price = db.Column(DECIMAL(precision=10, scale=2), nullable = False)
     quantity = db.Column(db.Integer, nullable = False)
     imageurl = db.Column(db.String, nullable = False)
 
@@ -92,21 +93,24 @@ class Order(db.Model, SerializerMixin):
     status = db.Column(db.Boolean, default=False, nullable=False)
     order_date = db.Column(db.DateTime(), server_default = db.func.now())
 
-    payment = db.relationship('Payment', backref='order_payments', lazy = True, foreign_keys = 'Payment.order_id')
+    payment = db.relationship('Payment', back_populates='order', lazy = True)
+    customer = db.relationship('Customer', back_populates = 'order', lazy = True)
 
     def __repr__(self):
-        return f"Total: {self.total_amount}"
+        return f"Total: {self.name}"
 
 
 class Payment(db.Model, SerializerMixin):
     __tablename__ = "payments"
 
-    id = db.Column(db.Integer, primary_key = True)
-    order_id = db.Column(db.Integer, db.ForeignKey('orders.id'))
+    id = db.Column(db.Integer, primary_key=True)
     phone = db.Column(db.Integer)
+    order_id = db.Column(db.Integer, db.ForeignKey('orders.id'))
     payment_date = db.Column(db.DateTime(), server_default=db.func.now())
-    amount = db.Column(db.Integer, db.ForeignKey('orders.total_amount'))
+    amount = db.Column(db.Integer)
     created_at = db.Column(db.DateTime(), server_default=db.func.now())
 
-    def __repr__(self) -> str:
+    order = db.relationship('Order', back_populates = 'payment', lazy = True)
+
+    def __repr__(self):
         return f"Amount paid: {self.amount}"

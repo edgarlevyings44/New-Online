@@ -27,7 +27,6 @@ function MyOrders() {
           console.log('Error fetching orders:', error);
         });
     }, [user_id])
-
   return (
       <div className='history_container'>
         <h2>My Orders</h2>
@@ -45,7 +44,7 @@ function MyOrders() {
                   <td>{order.id}</td>
                   <td>{order.total_amount.toFixed(2)}</td>
                   <td>{order.order_date}</td>
-                  <td>{order.status ==  0 ?('pending'):('paid')}</td>
+                  <td>{order.status == 0 ?('pending'):('paid')}</td>
                 </tr>
               ))}
             </tbody>
