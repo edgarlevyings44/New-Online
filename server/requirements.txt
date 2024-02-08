@@ -18,4 +18,4 @@ SQLAlchemy==1.4.42
 sqlalchemy-orm==1.2.10
 SQLAlchemy-serializer==1.4.1
 python-dotenv==0.19.1
-psycopg2-binary==2.9.1
+psycopg2==2.9.3
