@@ -6,7 +6,6 @@ import SearchBar from "./Searchbar";
 import "./Navbar.css";
 import "./Input.css";
 import SearchResultPage from "./SearchResultPage";
-import exampleImage from '../Assets/Frame53.png'
 
 export const Navbar = ({cart, customer, setCustomer, handleAddToCart, resetSearchResults}) => {
 
@@ -37,8 +36,7 @@ export const Navbar = ({cart, customer, setCustomer, handleAddToCart, resetSearc
     <div className="navbar_navbar">
       <div className="navbar_logo">
         <Link to="/" onClick={() => setResetSearchKey((prevKey) => prevKey + 1)}>
-          {/* <img src="https://i.im.ge/2024/01/29/bLwiCS.WhatsApp-Image-2024-01-29-at-14-40-27.jpg" alt="Denitelogo" /> */}
-          <img src={exampleImage} alt="Dedanitelogo" />
+          <img src="https://i.im.ge/2024/02/08/cLhGuW.logo-color.png" alt="Denitelogo" />
         </Link>
       </div>
       <div className="navbar_links">
@@ -68,7 +66,7 @@ export const Navbar = ({cart, customer, setCustomer, handleAddToCart, resetSearc
         </Link>
       </div>
 
-      <div className="navbar_login-cart" onClick={() => setResetSearchKey((prevKey) => prevKey + 1)}>
+      <div className="navbar_loginRegister" onClick={() => setResetSearchKey((prevKey) => prevKey + 1)}>
 
         {customer ? (
           <div className="navbar_user">
@@ -81,18 +79,21 @@ export const Navbar = ({cart, customer, setCustomer, handleAddToCart, resetSearc
             </select>
           </div>
         ) : (
-          <Link to="/login" className="navbar_login"> Login </Link>
+          <div className="navbar_loginRegister">
+            <Link to="/login"> Login</Link>
+            <Link to="/register"> | Register</Link>
+          </div>
         )}
         
       </div>
 
-      <div className="navbar_login-cart">
-      <Link to="/cart" className="navbar_cart" onClick={() => setResetSearchKey((prevKey) => prevKey + 1)}>
+      <div>
+        <Link to="/cart" className="navbar_cart" onClick={() => setResetSearchKey((prevKey) => prevKey + 1)}>
           <ShoppingCart size={32} />
           Cart ({cart.length})
         </Link>
       </div>
-      <SearchBar key={resetSearchKey} handleAddToCart={handleAddToCart}/>
+      <SearchBar className="navbar_searchbar" key={resetSearchKey} handleAddToCart={handleAddToCart}/>
       {location.pathname === '/search-result' && (
         <SearchResultPage handleAddToCart={handleAddToCart} />
       )}

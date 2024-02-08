@@ -10,17 +10,19 @@ function SearchResultPage({ handleAddToCart }) {
   const navigate = useNavigate();
 
   return (
-    <div className="Result-searchResultPage">
+    <div className="SearchResultPage-searchResultPage">
       {filteredData.map((value) => (
         <Details key={value.id}>
-          <div className="Result-card">
+          <div className="SearchResultPage-card">
             <img src={value.imageurl} alt={value.name} />
             <label>{value.name}</label>
-            <div className="Result-card-details">
-              <p>Category: {value.category}</p>
-              <p>Weight: {value.weight}</p>
-              <p>Price: Kshs.{value.price}</p>
-              <button onClick={() => handleAddToCart(value)}>Add to Cart</button>
+            <div className='Footer SearchResultPage-footer'>
+              <div className="SearchResultPage-card-details">
+                <p>Category: {value.category}</p>
+                <p>Weight: {value.weight}</p>
+                <p>Price: Kshs.{value.price}</p>
+                <button onClick={() => handleAddToCart(value)}>Add to Cart</button>
+              </div>
             </div>
           </div>
         </Details>

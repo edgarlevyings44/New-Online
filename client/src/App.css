@@ -1,3 +1,4 @@
+/* Styles for desktop screens */
 .top-categories {
   color: rgba(42, 79, 151, 0.96);
 }
@@ -7,6 +8,7 @@
   margin: 0;
   margin-top: 40px;
   margin-bottom: 20px;
+  width: auto;
   position: relative;
   font-size: 25px;
   line-height: 30px;
@@ -26,6 +28,7 @@
 .shop-from-top-categories-parent {
   display: flex;
   flex-direction: column;
+  margin-top: 70px;
   align-items: flex-end;
   justify-content: center;
   gap: 16px;

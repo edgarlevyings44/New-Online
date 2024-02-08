@@ -1,18 +1,20 @@
 /* SearchResultPage.css */
 
-.Result-searchResultPage {
+.SearchResultPage-searchResultPage {
   display: flex;
-  height: auto;
+  min-height: 780px;
   flex-wrap: wrap;
-  margin-bottom: 800px;
+  margin-bottom: 80px;
+  margin-left: 0px;
   margin-top: 100px;
   max-width: 100vw;
   justify-content: space-between;
-  padding: 20px;
+  padding: 60px;
   background: white;
+  overflow-y: scroll;
 }
 
-Result-Card {
+.SearchResultPage-card {
   flex: 0 0 calc(30% - 20px); /* Three items per row with a gap of 20px */
   width: 1200px;
   background-color: #45ce33;
@@ -24,30 +26,33 @@ Result-Card {
   margin-top: 100px;
 }
 
-.Result-card img {
+.SearchResultPage-card img {
   width: 100%;
   height: 150px;
   object-fit: cover;
   border-radius: 8px;
 }
 
-.Result-card label {
+.SearchResultPage-card label {
   margin-top: 10px;
   font-size: 16px;
   font-weight: bold;
 }
 
-.Result-card-details p {
+.SearchResultPage-card-details p {
   font-size: 14px;
-  margin: 5px 0;
+  margin: 0px 0;
 }
 
-.Result-card-details .price {
+.SearchResultPage-card-details .price {
   color: #070200; /* Change to your desired price color */
   margin-right: 15px;
 }
 
-.Result-card-details .cta {
+.SearchResultPage-card-details .cta {
   margin-top: 10px;
 }
 
+.SearchResultPage-footer {
+  margin-top: 1500px;
+}
