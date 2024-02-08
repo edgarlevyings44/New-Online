@@ -37,10 +37,9 @@ function Login({setCustomer}) {
     
         .then((data) => {
             if (data) {
-                // Save user details to local storage
-                localStorage.setItem('user', JSON.stringify(data));
-                // Log user details to console
-                console.log('Logged in user:', data);
+                sessionStorage.setItem('user_id', data.id);
+                console.log('User ID stored in session:', data.id); 
+                
                 setCustomer(data);
                 navigate('/');
             } else {
