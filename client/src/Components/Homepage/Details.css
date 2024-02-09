@@ -96,9 +96,9 @@
   
   
   .cta {
-    width: 100%;
-    margin-right: 0;
-    margin-bottom: 10px; /* Adjust bottom spacing as needed */
+    width: 100%; 
+    margin-right: 43;
+    margin-bottom: -10px; /* Adjust bottom spacing as needed */
     right: 0; /* Adjust right spacing as needed */
     background-color: transparent;
     color: navy;
