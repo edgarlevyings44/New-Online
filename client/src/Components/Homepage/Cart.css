@@ -60,22 +60,39 @@
   text-align: right;
 }
 
-.remove-item,
-.clear-cart,
-.checkout {
+.remove-item{
   background-color: #2a4d97; 
   color: white;
   padding: 10px 20px;
   border: none;
   cursor: pointer;
   border-radius: 5px;
+}
+.clear-cart{
+  margin-left: 10px;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: red;
+}
+
+.check-out{
   margin-right: 10px;
-}
-.check-out {
   background-color: #2a4d97; 
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
 }
+
 .remove-item:hover,
-.clear-cart:hover,
-.checkout:hover {
+.check-out:hover {
   background-color: #0056b3; 
+}
+
+.clear-cart:hover{
+  background-color: #F93822FF;
 }
