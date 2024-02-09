@@ -54,7 +54,7 @@ function Register() {
     return (
         <div className='register'>
             <div className='form-container'>
-                <h1 className='heading'>Dedanite Online Store</h1>
+                <h1 className='heading'>Denite Online Store</h1>
                 <form className='form' onSubmit={handleSubmit}>
                     <h2>Create an account</h2>
                     <input

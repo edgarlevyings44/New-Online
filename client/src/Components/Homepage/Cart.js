@@ -18,7 +18,6 @@ function Cart({customer, cart, setCart, removeFromCart, totalAmount}) {
     setCart([]);
   };
 
-
   return (
     <div className='selected-cart'>
       <h1>Selected Items:</h1>
@@ -45,7 +44,7 @@ function Cart({customer, cart, setCart, removeFromCart, totalAmount}) {
                     <td>{item.product.price}</td>
                     <td className='quantity'>
 
-                      <button onClick={() => {
+                      <button className="add" onClick={() => {
                         setCart((prevdata) => {
                           const updatedQuantity = prevdata.map(
                             (prevItem) => prevItem.product.id == item.product.id ? {
@@ -75,7 +74,7 @@ function Cart({customer, cart, setCart, removeFromCart, totalAmount}) {
                       </button>
                     </td>
                     <td>
-                      <button onClick={() => removeFromCart(item.product)}>
+                      <button className="remove-item" onClick={() => removeFromCart(item.product)}>
                         Remove Item
                       </button>
                     </td>
@@ -100,7 +99,7 @@ function Cart({customer, cart, setCart, removeFromCart, totalAmount}) {
       )}
   
       <div className='order-summary'>
-        <button onClick={customer ? (handlePay) : (handleCheckUser)}>
+        <button className="check-out" onClick={customer ? (handlePay) : (handleCheckUser)}>
           Check Out
         </button>
         <button className="clear-cart" onClick={clearCart}>
