@@ -524,12 +524,14 @@ class Make_Payment(Resource):
             response = make_response(
                 jsonify(message)
             )
+            amount_float = float(amount)
+
 
     
             new_data = Payment(
                 order_id = order_id,
                 phone = phone_number,
-                amount = amount
+                amount = amount_float
             )
 
             db.session.add(new_data)
