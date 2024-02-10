@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const ProductDetailsPage = ({ match }) => {
+const ProductDetails = ({ match }) => {
   const productId = match.params.id;
   const [product, setProduct] = useState(null);
 
@@ -25,4 +25,4 @@ const ProductDetailsPage = ({ match }) => {
   );
 };
 
-export default ProductDetailsPage;
+export default ProductDetails;

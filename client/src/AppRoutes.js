@@ -18,6 +18,7 @@ import AllCategoriesPage from './Components/Homepage/AllCategories';
 import Mpesa from './Components/Homepage/Mpesa';
 import MyOrders from './Components/Homepage/MyOrders';
 import ResetPassword from './Components/Homepage/ResetPassword';
+import ProductDetails from './Components/Homepage/ProductDetails';
 
 function AppRoutes({showNotification, customer, setCustomer, handleAddToCart, totalAmount, removeFromCart, cart, setCart}) {
 
@@ -41,6 +42,7 @@ function AppRoutes({showNotification, customer, setCustomer, handleAddToCart, to
           <Route path='/cart' element={<Cart customer={customer} cart={cart} setCart={setCart} removeFromCart={removeFromCart} totalAmount={totalAmount}/>}/>
           <Route path='/cart/payment' element={<Mpesa totalAmount={totalAmount}/>}/>
           <Route path='/myorders' element={<MyOrders />}/>
+          <Route path="/product-details/:id" component={ProductDetails} />
           
 
         </Routes>
