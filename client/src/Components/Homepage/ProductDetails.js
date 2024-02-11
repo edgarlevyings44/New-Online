@@ -2,14 +2,23 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import "./ProductsDetails.css"
 
-const ProductDetails = ({ match }) => {
+
+const ProductDetails = (props) => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
 
   const handleAddToCart = () => {
-    // Add logic to add product to cart
-    // For example: props.handleAddToCart(product)
-    // Assuming the handleAddToCart function is passed as a prop to ProductDetails
+    const newProduct = {
+      id: props.id,
+      name: props.name,
+      price: props.price,
+      imageurl: props.imageurl
+    }
+    props.handleAddToCart(newProduct)
+    setNotification(true)
+    setTimeout(() => {
+      setNotification(false)
+    }, 500)
   }
 
   useEffect(() => {

@@ -72,7 +72,7 @@
   line-height: 1.5;
 }
 .add-to-cart-button {
-  background-color: blue;
+  background-color: rgba(42, 79, 151, 0.96);
   color: white;
   padding: 10px 20px;
   border: none;

@@ -42,7 +42,7 @@ function AppRoutes({showNotification, customer, setCustomer, handleAddToCart, to
           <Route path='/cart' element={<Cart customer={customer} cart={cart} setCart={setCart} removeFromCart={removeFromCart} totalAmount={totalAmount}/>}/>
           <Route path='/cart/payment' element={<Mpesa totalAmount={totalAmount}/>}/>
           <Route path='/myorders' element={<MyOrders />}/>
-          <Route path='/product-details/:id' element={<ProductDetails />} />
+          <Route path='/product-details/:id' element={<ProductDetails handleAddToCart={handleAddToCart}/>} />
           
 
         </Routes>
