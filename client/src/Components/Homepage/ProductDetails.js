@@ -24,9 +24,8 @@ const ProductDetails = ({ match }) => {
         <img className='product-image' src={product.imageurl} alt={product.name} />
           <div className='text-details'>
             <h1 className='catchy-heading'>{product.name}</h1>
-            <p><strong>Price:</strong><span>${product.price}</span></p>
+            <p><strong>Price:</strong><span>KES{product.price}</span></p>
             <p><strong>Category:</strong><span>{product.category}</span></p>
-            <p><strong>Quantity:</strong><span>{product.quantity}</span></p>
             <p><strong>Weight:</strong><span>{product.weight}</span></p>
             <div className="stars">
               {[...Array(5)].map((_, index) => (
