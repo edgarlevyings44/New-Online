@@ -29,7 +29,7 @@ const AllCategoriesPage = ({handleAddToCart}) => {
       name={product.name}
       imageurl={product.imageurl}
       price={product.price}
-      description={product.description}
+      details={product.details}
       weight={product.weight}
       handleAddToCart={handleAddToCart}
     />

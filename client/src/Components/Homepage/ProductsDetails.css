@@ -56,17 +56,17 @@
   margin-right: 5px;
 }
 
-.description {
+.details {
   margin-top: 20px;
 }
 
-.description h2 {
+.details h2 {
   font-size: 20px;
   color: #333; 
   margin-bottom: 10px;
 }
 
-.description p {
+.details p {
   font-size: 16px;
   color: #555; 
   line-height: 1.5;

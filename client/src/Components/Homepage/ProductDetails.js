@@ -33,9 +33,9 @@ const ProductDetails = ({ match }) => {
                 <span key={index} className="inactive-star">&#9734;</span>
               ))}
             </div>
-            <div className="description">
+            <div className="details">
               <h2>Description:</h2>
-              <p>Discover the excellence of our premium supermarket product, a delightful blend of quality and taste. Our carefully selected ingredients ensure freshness and flavor with every bite.</p>
+              <p>{product.details}</p>
             </div>
         </div>
       </div>

@@ -63,6 +63,7 @@ const FruitsVegetablesPage = ({handleAddToCart}) => {
             id={product.id}
             name={product.name}
             price={product.price}
+            details={product.details}
             imageurl={product.imageurl}
             handleAddToCart={handleAddToCart}
           />

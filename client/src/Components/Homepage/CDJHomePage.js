@@ -48,7 +48,7 @@ const DrinksPage = ({handleAddToCart}) => {
       name={item.name}
       imageurl={item.imageurl} 
       price={item.price}
-      description={item.description}
+      details={item.details}
       weight={item.weight} 
       handleAddToCart={handleAddToCart}
     />

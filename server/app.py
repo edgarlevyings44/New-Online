@@ -165,7 +165,7 @@ class ForgotPassword(Resource):
                 }), 401
             )
         
-        hash_password = bcrypt.generate_password_hash(new_password)
+        hash_password = bcrypt.generate_password_hash(new_password).decode('utf-8')
 
         existing_user.password = hash_password
 
@@ -233,10 +233,25 @@ class GetProduct(Resource):
 
     @staticmethod
     def get():
-        list = [item.to_dict() for item in Product.query.all()]
+        product_list = Product.query.all()
+
+        product = []
+
+        for item in product_list:
+            list = {
+                "id":item.id,
+                "name":item.name,
+                "imageurl":item.imageurl,
+                "price":item.price,
+                "details":item.details,
+                "weight":item.weight,
+
+            }
+            product.append(list)
+        
 
         response = make_response(
-            jsonify(list)
+            jsonify(product)
         )
 
         return response

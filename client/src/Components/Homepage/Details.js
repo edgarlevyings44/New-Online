@@ -35,7 +35,7 @@ export default function Details(props) {
         <Button className="cta" onClick={handleAddToCart}>
           ADD
         </Button>
-        <p>{props.description}</p>
+        
         <div className="frame-child9" />
         <div className="offer">
           <b className="off">20% OFF</b>

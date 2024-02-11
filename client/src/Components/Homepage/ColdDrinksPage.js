@@ -57,6 +57,7 @@ const ColdDrinksPage = ({handleAddToCart}) => {
             name={product.name}
             price={product.price}
             imageurl={product.imageurl}
+            details={product.details}
             handleAddToCart={handleAddToCart}
           />
          ))}

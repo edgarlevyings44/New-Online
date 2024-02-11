@@ -36,7 +36,7 @@ class Customer(db.Model, SerializerMixin):
         if re.search(pattern, email):
             raise ValueError("Invalid email")
         return email
-    
+    # description column
 class Product(db.Model, SerializerMixin):
     __tablename__ = "products"
 
@@ -45,6 +45,7 @@ class Product(db.Model, SerializerMixin):
     category = db.Column(db.String, nullable = False)
     weight = db.Column(db.String, nullable = False)
     price = db.Column(DECIMAL(precision=10, scale=2), nullable = False)
+    details = db.Column(db.String, nullable = False)
     quantity = db.Column(db.Integer, nullable = False)
     imageurl = db.Column(db.String, nullable = False)
 
