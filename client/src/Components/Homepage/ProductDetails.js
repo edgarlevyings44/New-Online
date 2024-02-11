@@ -10,7 +10,10 @@ const ProductDetails = ({ match }) => {
     fetch(`https://dedanite-online.onrender.com/products/${id}`)
     
       .then((response) => response.json())
-      .then((data) => setProduct(data))
+      .then((data) => {
+        setProduct(data);
+        console.log(data.details);
+      })
       .catch((error) => console.error('Error fetching product details:', error));
   }, [id]);
 
