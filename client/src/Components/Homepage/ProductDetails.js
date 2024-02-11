@@ -7,7 +7,7 @@ const ProductDetails = ({ match }) => {
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    fetch(~`https://dedanite-online.onrender.com/products/${id}`)
+    fetch(`https://dedanite-online.onrender.com/products/${id}`)
     
       .then((response) => response.json())
       .then((data) => setProduct(data))
