@@ -26,6 +26,7 @@ const ProductDetails = ({ match }) => {
       <p>Category: {product.category}</p>
       <p>Quantity: {product.quantity}</p>
       <p>Weight: {product.weight}</p>
+      <p>Details: {product.details}</p>
     </div>
   );
 };
