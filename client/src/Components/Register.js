@@ -14,6 +14,9 @@ function Register() {
 
     })
 
+    const [error, setError] = useState(null)
+    const [notification, setNotification] = useState(null)
+
     const handleChange = (event) => {
         const key = event.target.name
         const value = event.target.value
@@ -36,25 +39,36 @@ function Register() {
             .then((response) => {
                 if (response.ok){
                     response.json()
-                    window.alert('Account created successfully')
-                    navigate('/login')
+                    
+                    setNotification('Successfully Registered!')
+                    setTimeout(() => {
+                        navigate('/login')
+                    }, 3000);
+                    
                 }else{
                     return response.json().then((errorData) => {
-                        window.alert(`Error: ${errorData.error}`)
+                        throw new Error (`${errorData.error}`)
                     })
                 }
 
             })
+            .catch((error) => {
+                setError(error.message)
+                setTimeout(() => {
+                    setError(null)
+                }, 1000);
+            })
 
         } else{
-            window.alert('password is not same')
+            setError('password is not same')
         }
+        
         
     }
     return (
         <div className='register'>
             <div className='form-container'>
-                <h1 className='heading'>Denite Online Store</h1>
+                <h1 className='heading'>Dedanite Online Store</h1>
                 <form className='form' onSubmit={handleSubmit}>
                     <h2>Create an account</h2>
                     <input
@@ -105,13 +119,16 @@ function Register() {
                         onChange={handleChange}
                     />
 
+                    {error ? (<div className='error'>{error}</div>):("")}
+                    {notification ? (<div className='success'>{notification}</div>):("")}
+
                     <button type='submit' className='button'>
                         Register
                     </button>
                     <p>Already have an account ?<a href='/login'>Login</a> </p>
                 </form>
                 <div className='image'>
-                    <img src='https://img.freepik.com/free-vector/people-shopping-with-bags_24908-56764.jpg?size=626&ext=jpg' />
+                    <img src='https://i.im.ge/2024/02/08/cLhGuW.logo-color.png' />
                 </div>
             </div>
 

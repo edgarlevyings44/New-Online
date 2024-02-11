@@ -9,6 +9,8 @@ function Login({setCustomer}) {
         password:""
     })
 
+    const [error, setError] = useState(null)
+
     const handleChange = (event) => {
         const key = event.target.name
         const value = event.target.value
@@ -31,21 +33,23 @@ function Login({setCustomer}) {
             if (response.ok){
                 return response.json()
             }else{
-                window.alert('Response Error')
+                throw new Error ('Wrong credential')
             }
         })
     
         .then((data) => {
             if (data) {
-                sessionStorage.setItem('user_id', data.id);
-                console.log('User ID stored in session:', data.id); 
                 
                 setCustomer(data);
                 navigate('/');
             } else {
-                window.alert("Wrong credential");
+                throw new Error ("Wrong credential");
             }
-        });
+        })
+        .catch((error) => {
+            setError(error.message)
+        })
+        
     }
   return (
     <div className='login'>
@@ -60,6 +64,7 @@ function Login({setCustomer}) {
                     value={formData.email}
                     onChange={handleChange}
                 />
+                
 
                 <input 
                     name='password'
@@ -68,6 +73,7 @@ function Login({setCustomer}) {
                     value={formData.password}
                     onChange={handleChange}
                 />
+                {error ? (<div className='error'>{error}</div>):("")}
 
                 <div className='forgotpassword'>
                     <Link to='/resetpassword'>Forgot password ?</Link>
@@ -87,7 +93,7 @@ function Login({setCustomer}) {
                 
             </form>
             <div className='image'>
-                <img src='https://img.freepik.com/free-vector/people-shopping-with-bags_24908-56764.jpg?size=626&ext=jpg'/>
+                <img src='https://i.im.ge/2024/02/08/cLhGuW.logo-color.png'/>
             </div>
         </div>
     </div>
