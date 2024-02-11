@@ -243,6 +243,7 @@ class GetProduct(Resource):
                 "name":item.name,
                 "imageurl":item.imageurl,
                 "price":item.price,
+                "category":item.category,
                 "details":item.details,
                 "weight":item.weight,
 
