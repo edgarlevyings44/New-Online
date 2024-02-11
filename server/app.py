@@ -243,6 +243,21 @@ class GetProduct(Resource):
 
 api.add_resource(GetProduct, '/products')
 
+class GetProductById(Resource):
+    @staticmethod
+    def get(product_id):
+        product = Product.query.get(product_id)
+
+        if not product:
+            response_message = {"error": "Product not found"}
+            return make_response(jsonify(response_message), 404)
+
+        product_data = product.to_dict()
+
+        return make_response(jsonify(product_data))
+
+api.add_resource(GetProductById, '/products/<int:product_id>')
+
 class Product_By_Category(Resource):
 
     @staticmethod
