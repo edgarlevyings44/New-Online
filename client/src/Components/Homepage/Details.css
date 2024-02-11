@@ -76,7 +76,7 @@
     border: 1px solid #ccc;
     padding: 15px;
     margin-top: 30px;
-    /* margin: 5px; */
+    min-height: 500px;
     width: 100%;
     
   }

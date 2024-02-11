@@ -8,6 +8,15 @@ const ProductDetails = (props) => {
   const [product, setProduct] = useState(null);
   const [showNotification, setNotification] = useState(false)
 
+  
+
+  useEffect(() => {
+    fetch(`https://dedanite-online.onrender.com/products/${id}`)
+      .then((response) => response.json())
+      .then((data) => setProduct(data))
+      .catch((error) => console.error('Error fetching product details:', error));
+  }, [id]);
+
   const handleAddToCart = () => {
     const newProduct = {
       id: props.id,
@@ -21,13 +30,6 @@ const ProductDetails = (props) => {
       setNotification(false)
     }, 500)
   }
-
-  useEffect(() => {
-    fetch(`https://dedanite-online.onrender.com/products/${id}`)
-      .then((response) => response.json())
-      .then((data) => setProduct(data))
-      .catch((error) => console.error('Error fetching product details:', error));
-  }, [id]);
 
   if (!product) {
     return <div>Loading...</div>;
