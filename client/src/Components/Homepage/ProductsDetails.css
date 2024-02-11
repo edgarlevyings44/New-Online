@@ -83,3 +83,23 @@
 .add-to-cart-button:hover {
   background-color: darkblue;
 }
+.notification-center{
+  position: absolute;
+  top: 0;
+  left: 20%;
+  width: 50%;
+  margin: auto;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: #fff;
+  text-align: center;
+  z-index: 1000; 
+  border-radius: 0 35px 0 35px;
+}
+
+.notification {
+  display: block;
+  padding: 10px;
+  background-color: #4CAF50; 
+  color: #fff;
+}

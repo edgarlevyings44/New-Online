@@ -6,6 +6,7 @@ import "./ProductsDetails.css"
 const ProductDetails = (props) => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
+  const [showNotification, setNotification] = useState(false)
 
   const handleAddToCart = () => {
     const newProduct = {
@@ -49,6 +50,13 @@ const ProductDetails = (props) => {
             <Link to={'/cart'}>
               <button className="add-to-cart-button" onClick={handleAddToCart}>Add to Cart</button>
             </Link>
+            {showNotification ? (
+          <div className='notification-center'>
+          <div className='notification'>
+              <p>Added to cart</p>
+            </div>
+          </div>
+        ) : (null)}
         </div>
       </div>
     </div>
