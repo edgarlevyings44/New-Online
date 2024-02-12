@@ -37,6 +37,7 @@ const AllCategoriesPage = ({handleAddToCart}) => {
 
 
  return (
+  <>
    <div className="container">
      <h1>All Products</h1>
 
@@ -70,8 +71,11 @@ const AllCategoriesPage = ({handleAddToCart}) => {
        </div>
 
 
-       {/* Product Cards */}
-       <div className="card-container">
+       
+     </div>
+   </div>
+   {/* Product Cards */}
+   <div className="card-container">
          {filteredProducts.map((product) => (
           <Details 
             key={product.id}
@@ -83,8 +87,8 @@ const AllCategoriesPage = ({handleAddToCart}) => {
           />
          ))}
        </div>
-     </div>
-   </div>
+       
+   </>
  );
 };
 

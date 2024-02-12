@@ -54,10 +54,10 @@ search-input {
   flex-direction: row;
   min-height: 800px;
   /* height: 500px; */
-  min-width: 2330px;
+  min-width: 1850px;
   margin: -105px;
-  margin-left: -510px;
-  margin-right: -155px;
+  margin-left: -500px;
+  margin-right: -185px;
   margin-bottom: 400px;
   margin-top: 65px;
   gap: 10px;
