@@ -39,7 +39,8 @@ function Login({setCustomer}) {
     
         .then((data) => {
             if (data) {
-                
+                sessionStorage.setItem('user_id', data.id);
+                console.log('User ID stored in session:', data.id);
                 setCustomer(data);
                 navigate('/');
             } else {

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import "./ProductsDetails.css"
+import { Button } from 'react-bootstrap';
 
 
 const ProductDetails = (props) => {
@@ -19,10 +20,10 @@ const ProductDetails = (props) => {
 
   const handleAddToCart = () => {
     const newProduct = {
-      id: props.id,
-      name: props.name,
-      price: props.price,
-      imageurl: props.imageurl
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      imageurl: product.imageurl
     }
     props.handleAddToCart(newProduct)
     setNotification(true)
@@ -50,7 +51,7 @@ const ProductDetails = (props) => {
               <p>{product.details}</p>
             </div>
             <Link to={'/cart'}>
-              <button className="add-to-cart-button" onClick={handleAddToCart}>Add to Cart</button>
+              <Button className="add-to-cart-button" onClick={handleAddToCart}>Add to Cart</Button>
             </Link>
             {showNotification ? (
           <div className='notification-center'>
