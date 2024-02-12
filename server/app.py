@@ -161,7 +161,7 @@ class ForgotPassword(Resource):
             
             return make_response(
                 jsonify({
-                    "messae":"Email not found"
+                    "message":"Email not found"
                 }), 401
             )
         

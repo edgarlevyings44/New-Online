@@ -9,6 +9,9 @@ function ResetPassword() {
         confirmPassword:""
     })
 
+    const [error, setError] = useState(null)
+    const [notification, setNotification] = useState(null)
+
     const navigate = useNavigate()
 
     const handleChange = (event) => {
@@ -31,16 +34,28 @@ function ResetPassword() {
             .then((response) => {
                 if (response.ok){
                     response.json()
+
+                    setNotification('Password reset successfully')
+                    setTimeout(() => {
+                        navigate('/login')
+                    }, 1000);
                 }else{
-                    window.alert('Response was not ok!')
+                    return response.json().then((errorData) => {
+                        throw new Error (`${errorData.message}`)
+                    })
                 }
             })
-            .then((data) => {
-                window.alert('Password reset successfully')
-                navigate('/login')
+            .catch((error) => {
+                setError(error.message)
+                setTimeout(() => {
+                    setError(null)
+                }, 1000);
             })
         } else{
-            window.alert('password not matching')
+            setError('password not matching')
+            setTimeout(() => {
+                setError(null)
+            }, 1000);
         }
     }
 
@@ -71,6 +86,9 @@ function ResetPassword() {
                     onChange={handleChange}
                     placeholder='Confirm Password'
                 />
+                {error ? (<div className='error'>{error}</div>):("")}
+                {notification ? (<div className='success'>{notification}</div>):("")}
+
                 <button type='submit'>
                     Reset Password
                 </button>
