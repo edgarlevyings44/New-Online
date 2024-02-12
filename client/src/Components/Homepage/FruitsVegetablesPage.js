@@ -26,6 +26,7 @@ const FruitsVegetablesPage = ({handleAddToCart}) => {
 
 
  return (
+  <>
    <div className="container">
      <h1>Fruits & Vegetables</h1>
 
@@ -55,8 +56,11 @@ const FruitsVegetablesPage = ({handleAddToCart}) => {
        </div>
 
 
-       {/* Product Cards */}
-       <div className="card-container">
+     
+     </div>
+   </div>
+     {/* Product Cards */}
+     <div className="card-container">
        {filteredProducts.map((product) => (
           <Details 
             key={product.id}
@@ -69,8 +73,7 @@ const FruitsVegetablesPage = ({handleAddToCart}) => {
           />
          ))}
        </div>
-     </div>
-   </div>
+   </>
  );
 };
 

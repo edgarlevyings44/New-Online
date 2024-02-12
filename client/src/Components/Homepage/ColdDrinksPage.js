@@ -21,6 +21,7 @@ const ColdDrinksPage = ({handleAddToCart}) => {
     .filter(product => selectedPriceRange === 'All' || (selectedPriceRange === 'Low' && product.price < 1) || (selectedPriceRange === 'High' && product.price >= 1));
 
   return (
+    <>
     <div className="container">
       <h1>Cold Drinks & Juices</h1>
 
@@ -48,8 +49,11 @@ const ColdDrinksPage = ({handleAddToCart}) => {
           </div>
         </div>
 
-        {/* Product Cards */}
-        <div className="card-container">
+        
+      </div>
+    </div>
+    {/* Product Cards */}
+    <div className="card-container">
         {filteredProducts.map((product) => (
           <Details 
             key={product.id}
@@ -62,8 +66,7 @@ const ColdDrinksPage = ({handleAddToCart}) => {
           />
          ))}
         </div>
-      </div>
-    </div>
+    </>
   );
 };
 

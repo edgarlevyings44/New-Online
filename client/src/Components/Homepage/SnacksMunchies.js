@@ -22,6 +22,7 @@ const SnacksMunchiesPage = ({handleAddToCart}) => {
     .filter(product => selectedPriceRange === 'All' || (selectedPriceRange === 'Low' && product.price < 1) || (selectedPriceRange === 'High' && product.price >= 1));
 
   return (
+    <>
     <div className="container">
       <h1>Snacks & Munchies</h1>
 
@@ -49,8 +50,11 @@ const SnacksMunchiesPage = ({handleAddToCart}) => {
           </div>
         </div>
 
-        {/* Product Cards */}
-        <div className="card-container">
+     
+      </div>
+    </div>
+       {/* Product Cards */}
+       <div className="card-container">
         {filteredProducts.map((product) => (
           <Details 
             key={product.id}
@@ -63,8 +67,7 @@ const SnacksMunchiesPage = ({handleAddToCart}) => {
           />
          ))}
         </div>
-      </div>
-    </div>
+    </>
   );
 };
 
