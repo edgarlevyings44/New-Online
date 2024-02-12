@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { ShoppingCart } from "phosphor-react";
 import SearchBar from "./Searchbar";
@@ -12,6 +12,7 @@ export const Navbar = ({cart, customer, setCustomer, handleAddToCart, resetSearc
   const [resetSearchKey, setResetSearchKey] = React.useState(0);
   const navigate = useNavigate()
   const location = useLocation();
+  const [notification,setNotification] =useState(null);
 
   const handleLogout = () => {
     fetch('https://dedanite-online.onrender.com/logout', {
@@ -19,10 +20,15 @@ export const Navbar = ({cart, customer, setCustomer, handleAddToCart, resetSearc
     })
     .then((response) => response.json())
     .then((data) => {
-      window.alert("Logged out!!")
+      setNotification("Logged out!!")
       setCustomer(null)
       navigate('/')
+
+      setTimeout(() => {
+        setNotification(null)
+      }, 2000);
     })
+
   }
 
   const handleOrder = (event) => {
@@ -80,6 +86,7 @@ export const Navbar = ({cart, customer, setCustomer, handleAddToCart, resetSearc
           </div>
         ) : (
           <div className="navbar_loginRegister">
+            {notification?(<div className="LogOutNotification">{notification}</div>):("")}
             <Link to="/login"> Login</Link>
             <Link to="/register"> | Register</Link>
           </div>

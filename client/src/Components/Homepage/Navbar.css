@@ -170,4 +170,12 @@
   background-color: rgb(255, 255, 255);
   color: #070000;
 }
+.LogOutNotification{
+  background-color: #c21206;
+  color: #fff;
+  font-size: 16px;
+  padding: 10px;
+  border: 1px solid #c21206;
+  border-radius: 5px;
+}
 

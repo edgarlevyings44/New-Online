@@ -49,6 +49,9 @@ function Login({setCustomer}) {
         })
         .catch((error) => {
             setError(error.message)
+            setTimeout(() => {
+                setError(null)
+            }, 1000);
         })
         
     }

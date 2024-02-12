@@ -12,6 +12,9 @@ const Mpesa = ({ totalAmount }) => {
   const [additionalSpecifications, setAdditionalSpecifications] = useState('');
   const [loading, setLoading] = useState(false);
 
+  const [error, setError] = useState(null)
+  const [notification, setNotification] = useState(null)
+
   const navigate = useNavigate()
 
   const handleNumber = (event) => {
@@ -40,17 +43,20 @@ const Mpesa = ({ totalAmount }) => {
 
   const createOrder = (statusValue) => {
 
-    const user_id = sessionStorage.getItem('user_id');
-    console.log('User ID:', user_id);
-
     fetch('https://dedanite-online.onrender.com/orders', {
         method:'POST',
         headers:{
             'Content-Type':'application/json'
         },
-        body:JSON.stringify({user_id, name,amount, county, street, status:statusValue})
+        body:JSON.stringify({name,amount, county, street, status:statusValue})
     })
-    .then((response) => response.json())
+    .then((response) => {
+      
+      if (response.ok){
+        setNotification('Order placed')
+
+      }
+    })
   }
 
   const submitForm = (event) => {
@@ -68,21 +74,31 @@ const Mpesa = ({ totalAmount }) => {
         setLoading(false);
 
         if (response.ok) {
-          window.alert('Payment made');
-          navigate('/myorders')
+          setNotification('Payment made');
+          
+          setTimeout(() => {
+            navigate('/myorders')
+          }, 1000);
         } else {
-          window.alert('Payment failed');
+          throw new Error ('Payment failed');
         }
       })
       .catch((error) => {
         setLoading(false);
-        console.log('This is the error: ', error);
+        setError(error.message)
+        
+        setTimeout(() => {
+          setError(null)
+        }, 1000);
       });
   };
 
   const paylater = () => {
     createOrder(false)
-    navigate('/myorders')
+    
+    setTimeout(() => {
+      navigate('/myorders')
+    }, 2000);
   }
 
   return (
@@ -137,11 +153,14 @@ const Mpesa = ({ totalAmount }) => {
             value={amount.toFixed(2)}
             onChange={handleAmount}
           />
-          <button type='submit'>{loading ? 'Processing...' : 'Pay Now'}</button>
-          
+          <button type='submit'>{loading ? 'Processing...' : 'Pay Now'}</button>         
 
         </form>
         <button className='paylater' onClick={paylater}>PayLater</button>
+
+        {error ? (<div className='error'>{error}</div>):("")}
+        {notification ? (<div className='success'>{notification}</div>):("")}
+ 
       </div>
     </div>
   );
