@@ -23,7 +23,7 @@
     font-weight: bold;
   }
   
-  button {
+  .button {
     background-color: #007bff;
     color: #fff;
     border: none;
@@ -136,6 +136,12 @@
   
   .filter-section {
     margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    min-width: 500px;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
   }
   
   .filter-section h2 {
@@ -185,15 +191,17 @@
   
   
   
-  .filter-card {
-  flex: 0 0 calc(30% - 10px); /* Adjust the width of the filter card */
-  margin-bottom: 20px;
-  background-color: #ffffff; /* White background for the filter card */
-  border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  padding: 20px;
-  }
+.filter-card {
+    flex: 0 0 calc(30% - 10px); 
+    margin-bottom: 20px;
+    background-color: #ffffff; 
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 20px;
+    min-width: 500px;
+    min-height: 50px;
+    }
   
   .filter-card h2 {
   font-size: 24px;
